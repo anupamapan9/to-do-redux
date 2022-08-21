@@ -53,7 +53,7 @@ const todoReducer = (state = initialstate, action) => {
         case CLEAR_COMPLETED:
             return state.filter(todo => !todo.completed)
         default:
-            break;
+            return state;
     }
 }
 export default todoReducer

@@ -4,7 +4,8 @@ export const initialstate = [
     {
         id: 1,
         text: 'Learn React Js',
-        completed: true
+        completed: true,
+        color: 'green'
     },
 
     {

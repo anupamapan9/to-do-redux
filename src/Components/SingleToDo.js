@@ -2,6 +2,9 @@ import React from 'react';
 import Cancel from '../images/cancel.png'
 import { toggled, colorSelected, deleted } from '../Redux/ToDos/TodoActions'
 import { useDispatch } from 'react-redux';
+import updateStatus from '../Redux/ToDos/thunk/updateStatus';
+import updateColor from '../Redux/ToDos/thunk/updateColor';
+
 const SingleToDo = ({ todo }) => {
     const { id, text, completed, color } = todo;
     const dispatch = useDispatch()
@@ -9,10 +12,10 @@ const SingleToDo = ({ todo }) => {
 
     // handel events --------------------------------
     const handelStatusChange = (todoId) => {
-        dispatch(toggled(todoId))
+        dispatch(updateStatus(todoId, completed))
     }
     const handelColorChange = (todoId, selectedColor) => {
-        dispatch(colorSelected(
+        dispatch(updateColor(
             todoId,
             selectedColor
         ))

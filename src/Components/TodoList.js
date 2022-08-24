@@ -1,5 +1,6 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import fetchTodos from '../Redux/ToDos/thunk/fetchTodo';
 import SingleToDo from './SingleToDo';
 
 
@@ -7,6 +8,10 @@ import SingleToDo from './SingleToDo';
 function TodoList() {
     const todos = useSelector((state) => state.todos);
     const filters = useSelector((state) => state.filters)
+    const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch(fetchTodos)
+    }, [dispatch])
 
     const filterByStatus = todo => {
         const { status } = filters;

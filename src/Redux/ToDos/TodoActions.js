@@ -1,9 +1,15 @@
-import { ADDED, TOGGLED, ALL_COMPLETED, CLEAR_COMPLETED, COLOR_SELECTED, DELETED } from "./TodoActionTypes"
+import { ADDED, TOGGLED, ALL_COMPLETED, CLEAR_COMPLETED, COLOR_SELECTED, DELETED, LOADED } from "./TodoActionTypes"
 
 
 export const added = (todo) => {
     return {
         type: ADDED,
+        payload: todo
+    }
+}
+export const loaded = (todo) => {
+    return {
+        type: LOADED,
         payload: todo
     }
 }
